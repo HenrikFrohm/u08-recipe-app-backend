@@ -20,7 +20,7 @@ class RecipeListController extends Controller
         } else {
             return response()->json([
                 'success' => false,
-                'message' => "No recipe lists found",
+                'message' => "No recipe lists was found",
             ]);
         }
     }
@@ -50,7 +50,7 @@ class RecipeListController extends Controller
         } else {
             return response()->json([
                 'success' => false,
-                'message' => 'sorry, recipe list could not be added'
+                'message' => 'Recipe list can not be added'
             ]);
         }
      }
@@ -71,7 +71,7 @@ class RecipeListController extends Controller
         } else {
             return response()->json([
                 'success' => false,
-                'message' => 'Recipe list didnt get updated'
+                'message' => 'Recipe list did not get updated'
             ]);
         }
     }
@@ -88,12 +88,12 @@ class RecipeListController extends Controller
             $list = RecipeList::find($id)->delete();
             return response()->json([
                 'success' => true,
-                'message' => 'Recipe list was deleted',
+                'message' => 'Recipe list was removed',
             ]);
         } else {
             return response()->json([
                 'success' => false,
-                'message' => 'The recipe list didnt get deleted'
+                'message' => 'Recipe list did not get removed'
             ]);
         }
     }

@@ -16,10 +16,24 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::group([
+'middleware' => 'api',
+'prefix' => 'lists'
+
+], function ($router) {
+// Routes for Recipe list
+Route::get('/recipe-lists', [RecipeListController::class, 'index']);
+Route::get('recipe-lists/{id}', [RecipeListController::class, 'get']);
+Route::post('/recipe-lists', [RecipeListController::class, 'store']);
+Route::put('/recipe-lists/{id}', [RecipeListController::class, 'update']);
+Route::delete('/recipe-lists/{id}', [RecipeListController::class, 'delete']);
+});
+
+Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
 
 ], function ($router) {
+    // Auth routes
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/logout', [AuthController::class, 'logout']);
